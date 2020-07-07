@@ -3,12 +3,16 @@ import { StyledComment, StyledVoteButton, StyledVoteButtonContainer } from './st
 import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from '../../redux/reducers/rootReducer'
 import { CommentAction } from '../../redux/actions/commentActions'
+import EmptyLine from '../EmptyLine'
 
 
 const Comments: React.FC = () => {
 
     const { comments } = useSelector((state: AppState) => state.comments)
     const commentDispatch = useDispatch<Dispatch<CommentAction>>();
+
+    const numEmptyLines = 10 - comments.length;
+    const emptyLines = new Array(numEmptyLines).fill('');
 
     return (
         <>
@@ -22,6 +26,11 @@ const Comments: React.FC = () => {
                         <StyledVoteButton onClick={() => commentDispatch({type: 'DOWNVOTE_COMMENT', payload: idx})} vote="minus">-</StyledVoteButton>
                     </StyledVoteButtonContainer>
                 </StyledComment>
+            )
+        })}
+        {emptyLines.map((line, idx) => {
+            return (
+                <EmptyLine key={idx + comments.length} />
             )
         })}
         </>

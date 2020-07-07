@@ -13,5 +13,6 @@ export const StyledWall = styled.div(({ theme } : StyledWallProps) => css`
     background: ${theme.lightGrey};
     width: 100vw;
     max-width: 1000px;
-    height: calc(100vh - 80px);
+    padding: 2px 0;
+    border-radius: 4px;
 `);
