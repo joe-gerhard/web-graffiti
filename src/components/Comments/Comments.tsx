@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledComment, StyledVoteButton, StyledVoteButtonContainer } from './styles'
-import { Comment } from '../Wall/Wall';
+import { Comment } from '../../redux/reducers/commentReducer'
 
 
 type CommentsProps = {
