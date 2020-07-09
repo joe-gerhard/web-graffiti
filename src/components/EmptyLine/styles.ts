@@ -17,5 +17,27 @@ export const StyledEmptyLine = styled.div(({ theme }: StyledEmptyLineProps) => c
     color: ${theme.dark};
     display: flex;
     align-items: center;
-    font-size: 14px;
+
+    input {
+        border: none;
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        border: 1px solid ${theme.darkGrey};
+        background: ${theme.light};
+        padding: 2px 4px;
+        border-radius: 4px;
+
+        &:hover {
+            cursor: pointer;
+            background: ${theme.lightGrey};
+        }
+    }
 `);

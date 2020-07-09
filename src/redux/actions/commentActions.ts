@@ -1,3 +1,5 @@
+import { Comment } from "../reducers/commentReducer";
+
 interface IAddCommentAction {
     readonly type: 'ADD_COMMENT',
     payload: string,
@@ -18,8 +20,14 @@ interface IDownvoteCommentAction {
     payload: number,
 }
 
+interface ISetCommentsAction {
+    readonly type: 'SET_COMMENTS',
+    payload: Comment[],
+}
+
 export type CommentAction = 
 | IAddCommentAction
 | IDeleteCommentAction
 | IUpvoteCommentAction
 | IDownvoteCommentAction
+| ISetCommentsAction

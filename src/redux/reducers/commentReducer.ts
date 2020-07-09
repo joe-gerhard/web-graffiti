@@ -11,7 +11,7 @@ type commentState = {
 }
 
 const initialCommentState = {
-    comments: [{text: 'test', votes: 0}]
+    comments: [],
 }
 
 const commentReducer = (state: commentState = initialCommentState, action: CommentAction) => {
@@ -45,6 +45,16 @@ const commentReducer = (state: commentState = initialCommentState, action: Comme
             return {
                 ...state,
                 comments: tempComments,
+            }
+        }
+        case 'SET_COMMENTS': {
+            let comments = action.payload;
+            comments.sort((a, b) => {
+                return b.votes - a.votes;
+            })
+            return {
+                ...state,
+                comments,
             }
         }
         default:

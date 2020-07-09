@@ -1,6 +1,7 @@
-interface ITestAction {
-    readonly type: 'TEST',
+interface ISetShouldReloadAction {
+    readonly type: 'SET_SHOULD_RELOAD',
+    payload: boolean,
 }
 
 export type UIAction = 
-| ITestAction
+| ISetShouldReloadAction
